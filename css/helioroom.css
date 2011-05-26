@@ -1,0 +1,49 @@
+#connecting {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  right: 40%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#feeds {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#feeds thead th {
+  background-color: #444;
+  border-bottom: solid black 2px;
+}
+
+#feeds td {
+  background-color: #fff;
+  color: black;
+  vertical-align: top;
+  overflow: scroll;
+  width: 50%;
+}
+
+#feeds h3,
+#feeds p {
+  margin: 0;
+  width: 100%;
+}
+
+#feeds table {
+  width: 100%;
+}
+
+#feeds table tr td {
+  border-bottom: 2px dotted #aaa;
+  width: 100%;
+}
+
+#feeds .comments {
+  color: #373;
+  width: 100%;
+}
