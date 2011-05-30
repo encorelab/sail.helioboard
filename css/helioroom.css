@@ -7,43 +7,89 @@
   font-weight: bold;
 }
 
-#feeds {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
+#tabs {
+  margin: 8px;
+  box-shadow: rgba(0,0,128,0.25) 3px 3px 4px;
 }
 
-#feeds thead th {
-  background-color: #444;
-  border-bottom: solid black 2px;
-}
-
-#feeds td {
-  background-color: #fff;
-  color: black;
-  vertical-align: top;
-  overflow: scroll;
-  width: 50%;
-}
-
-#feeds h3,
-#feeds p {
+#observations-tab h2 {
   margin: 0;
-  width: 100%;
 }
 
-#feeds table {
-  width: 100%;
+#hypotheses {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 55px;
+  bottom: 55px;
 }
 
-#feeds table tr td {
-  border-bottom: 2px dotted #aaa;
-  width: 100%;
+.tab {
+ 
 }
 
-#feeds .comments {
-  color: #373;
-  width: 100%;
+.baloon {
+  position: absolute;
+  padding: 8px;
+  max-width: 40%;
+  max-height: 80%;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: rgba(256,256,256,0.7);
+  box-shadow: rgba(0,0,128,0.25) 3px 3px 4px;
 }
+
+.baloon:hover {
+  cursor: pointer;
+}
+
+.baloon p {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-indent: -1ex;
+  margin-left: 1ex;
+}
+
+.baloon .group {
+  text-decoration: underline;
+}
+
+.baloon .evidence {
+  font-size: 1em;
+  padding-left: 2em;
+  list-style-image: url(../images/evidence.png);
+  margin: 0;
+}
+
+.baloon .discussion {
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8em;
+  font-style: italic;
+  margin-left: -2ex;
+  list-style-image: url(../images/comment.png);
+}
+
+.baloon .predicate {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.baloon.red { background-color: #F78181; }
+.baloon.orange { background-color: #FE9A2E; }
+.baloon.yellow { background-color: #F3F781; }
+.baloon.green { background-color: #D0F5A9; }
+.baloon.blue { background-color: #81BEF7; }
+.baloon.purple { background-color: #BE81F7; }
+.baloon.brown { background-color: #D8BF78; }
+.baloon.gray { background-color: #BDBDBD; }
+.baloon.pink { background-color: #F8E0E0; }
+
+#planets {
+  
+}
+
+
+svg circle {
+  cursor: pointer;
+}
+

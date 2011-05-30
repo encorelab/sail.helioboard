@@ -27,30 +27,308 @@
     </header> 
     
     <div id="connecting">
-        <img src="loader.gif" />
+        <img src="images/loader.gif" />
         <p>Connecting...</p>
     </div>
     
-    <table id="feeds" class="widget-box" style="display: none">
-        <thead>
-            <tr>
-                <th>Inquiry</th>
-                <th>Idea/Comment</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <table id="questions">
-                    </table>
-                </td>
-                <td>
-                    <table id="ideas">
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="tabs" style="display: none; bottom: 5px; top: 50px; right: 5px; left: 5px; position: absolute">
+        <ul>
+          <li><a href="#observations-tab">Observations</a></li>
+          <li><a href="#hypotheses-tab">Hypotheses</a></li>
+        </ul>
+        <div id="observations-tab" class="tab">
+            <h2>Observations for...</h2>
+            <svg id="planets" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 900 450">
+                <circle id="red" cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+                <circle id="orange" cx="150" cy="50" r="40" stroke="black" stroke-width="2" fill="orange" />
+                <circle id="yellow" cx="250" cy="50" r="40" stroke="black" stroke-width="2" fill="yellow" />
+                <circle id="green" cx="350" cy="50" r="40" stroke="black" stroke-width="2" fill="green" />
+                <circle id="blue" cx="450" cy="50" r="40" stroke="black" stroke-width="2" fill="blue" />
+                <circle id="purple" cx="550" cy="50" r="40" stroke="black" stroke-width="2" fill="purple" />
+                <circle id="brown" cx="650" cy="50" r="40" stroke="black" stroke-width="2" fill="brown" />
+                <circle id="gray" cx="750" cy="50" r="40" stroke="black" stroke-width="2" fill="gray" />
+                <circle id="pink" cx="850" cy="50" r="40" stroke="black" stroke-width="2" fill="pink" />
+                
+                <g id="data" visibility="hidden">
+                    <line class="current-red" x1="50" y1="100" x2="50" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-orange" x1="150" y1="100" x2="150" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-yellow" x1="250" y1="100" x2="250" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-green" x1="350" y1="100" x2="350" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-blue" x1="450" y1="100" x2="450" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-purple" x1="550" y1="100" x2="550" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-brown" x1="650" y1="100" x2="650" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-gray" x1="750" y1="100" x2="750" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line class="current-pink" x1="850" y1="100" x2="850" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                
+                    <line x1="0" y1="130" x2="900" y2="130"
+                        style="stroke:black; stroke-width:3"/>
+                    <line x1="1" y1="130" x2="1" y2="140"
+                        style="stroke:black; stroke-width:3"/>
+                    <line x1="899" y1="130" x2="899" y2="140"
+                        style="stroke:black; stroke-width:3"/>
+                    
+                    <text x="5" y="275" font-size="12">
+                        ... is in front of:
+                    </text>
+                
+                    <text x="5" y="320" font-size="12">
+                        ... is behind:
+                    </text>
+                    
+                    <g transform="translate(100,180) scale(0.85)">
+                        <g id="behind">
+                            <circle class="red" cx="60" cy="50" r="27" stroke="black" stroke-width="2" fill="red" />
+                            <circle class="orange" cx="160" cy="50" r="27" stroke="black" stroke-width="2" fill="orange" />
+                            <circle class="yellow" cx="260" cy="50" r="27" stroke="black" stroke-width="2" fill="yellow" />
+                            <circle class="green" cx="360" cy="50" r="27" stroke="black" stroke-width="2" fill="green" />
+                            <circle class="blue" cx="460" cy="50" r="27" stroke="black" stroke-width="2" fill="blue" />
+                            <circle class="purple" cx="560" cy="50" r="27" stroke="black" stroke-width="2" fill="purple" />
+                            <circle class="brown" cx="660" cy="50" r="27" stroke="black" stroke-width="2" fill="brown" />
+                            <circle class="gray" cx="760" cy="50" r="27" stroke="black" stroke-width="2" fill="gray" />
+                            <circle class="pink" cx="860" cy="50" r="27" stroke="black" stroke-width="2" fill="pink" />
+                        </g>
+                    
+                        <g id="current-infront" style="fill: red" transform="translate(-15, -15)">
+                            <circle class="red" cx="50" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="orange" cx="150" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="yellow" cx="250" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="green" cx="350" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="blue" cx="450" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="purple" cx="550" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="brown" cx="650" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="gray" cx="750" cy="50" r="30" stroke="black" stroke-width="2" />
+                            <circle class="pink" cx="850" cy="50" r="30" stroke="black" stroke-width="2" />
+                        </g>
+                    
+                        <g id="values" transform="translate(0,112)" style="font-weight: bold; font-size: 16pt">
+                            <g id="values-infront">
+                                <g class="current-red">
+                                    <text id="red-infront-red" x="50"></text>
+                                    <text id="red-infront-orange" x="150"></text>
+                                    <text id="red-infront-yellow" x="250"></text>
+                                    <text id="red-infront-green" x="350"></text>
+                                    <text id="red-infront-blue" x="450"></text>
+                                    <text id="red-infront-purple" x="550"></text>
+                                    <text id="red-infront-brown" x="650"></text>
+                                    <text id="red-infront-gray" x="750"></text>
+                                    <text id="red-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-orange">
+                                    <text id="orange-infront-red" x="50"></text>
+                                    <text id="orange-infront-orange" x="150"></text>
+                                    <text id="orange-infront-yellow" x="250"></text>
+                                    <text id="orange-infront-green" x="350"></text>
+                                    <text id="orange-infront-blue" x="450"></text>
+                                    <text id="orange-infront-purple" x="550"></text>
+                                    <text id="orange-infront-brown" x="650"></text>
+                                    <text id="orange-infront-gray" x="750"></text>
+                                    <text id="orange-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-yellow">
+                                    <text id="yellow-infront-red" x="50"></text>
+                                    <text id="yellow-infront-orange" x="150"></text>
+                                    <text id="yellow-infront-yellow" x="250"></text>
+                                    <text id="yellow-infront-green" x="350"></text>
+                                    <text id="yellow-infront-blue" x="450"></text>
+                                    <text id="yellow-infront-purple" x="550"></text>
+                                    <text id="yellow-infront-brown" x="650"></text>
+                                    <text id="yellow-infront-gray" x="750"></text>
+                                    <text id="yellow-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-green">
+                                    <text id="green-infront-red" x="50"></text>
+                                    <text id="green-infront-orange" x="150"></text>
+                                    <text id="green-infront-yellow" x="250"></text>
+                                    <text id="green-infront-green" x="350"></text>
+                                    <text id="green-infront-blue" x="450"></text>
+                                    <text id="green-infront-purple" x="550"></text>
+                                    <text id="green-infront-brown" x="650"></text>
+                                    <text id="green-infront-gray" x="750"></text>
+                                    <text id="green-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-blue">
+                                    <text id="blue-infront-red" x="50"></text>
+                                    <text id="blue-infront-orange" x="150"></text>
+                                    <text id="blue-infront-yellow" x="250"></text>
+                                    <text id="blue-infront-green" x="350"></text>
+                                    <text id="blue-infront-blue" x="450"></text>
+                                    <text id="blue-infront-purple" x="550"></text>
+                                    <text id="blue-infront-brown" x="650"></text>
+                                    <text id="blue-infront-gray" x="750"></text>
+                                    <text id="blue-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-purple">
+                                    <text id="purple-infront-red" x="50"></text>
+                                    <text id="purple-infront-orange" x="150"></text>
+                                    <text id="purple-infront-yellow" x="250"></text>
+                                    <text id="purple-infront-green" x="350"></text>
+                                    <text id="purple-infront-blue" x="450"></text>
+                                    <text id="purple-infront-purple" x="550"></text>
+                                    <text id="purple-infront-brown" x="650"></text>
+                                    <text id="purple-infront-gray" x="750"></text>
+                                    <text id="purple-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-brown">
+                                    <text id="brown-infront-red" x="50"></text>
+                                    <text id="brown-infront-orange" x="150"></text>
+                                    <text id="brown-infront-yellow" x="250"></text>
+                                    <text id="brown-infront-green" x="350"></text>
+                                    <text id="brown-infront-blue" x="450"></text>
+                                    <text id="brown-infront-purple" x="550"></text>
+                                    <text id="brown-infront-brown" x="650"></text>
+                                    <text id="brown-infront-gray" x="750"></text>
+                                    <text id="brown-infront-pink" x="850"></text>
+                                </g>
+                                <g class="current-pink">
+                                    <text id="pink-infront-red" x="50"></text>
+                                    <text id="pink-infront-orange" x="150"></text>
+                                    <text id="pink-infront-yellow" x="250"></text>
+                                    <text id="pink-infront-green" x="350"></text>
+                                    <text id="pink-infront-blue" x="450"></text>
+                                    <text id="pink-infront-purple" x="550"></text>
+                                    <text id="pink-infront-brown" x="650"></text>
+                                    <text id="pink-infront-gray" x="750"></text>
+                                    <text id="pink-infront-pink" x="850"></text>
+                                </g>
+                            </g>
+                        
+                            <g id="values-behind" transform="translate(0,60)">
+                                <g class="current-red">
+                                    <text id="red-behind-red" x="50"></text>
+                                    <text id="red-behind-orange" x="150"></text>
+                                    <text id="red-behind-yellow" x="250"></text>
+                                    <text id="red-behind-green" x="350"></text>
+                                    <text id="red-behind-blue" x="450"></text>
+                                    <text id="red-behind-purple" x="550"></text>
+                                    <text id="red-behind-brown" x="650"></text>
+                                    <text id="red-behind-gray" x="750"></text>
+                                    <text id="red-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-orange">
+                                    <text id="orange-behind-red" x="50"></text>
+                                    <text id="orange-behind-orange" x="150"></text>
+                                    <text id="orange-behind-yellow" x="250"></text>
+                                    <text id="orange-behind-green" x="350"></text>
+                                    <text id="orange-behind-blue" x="450"></text>
+                                    <text id="orange-behind-purple" x="550"></text>
+                                    <text id="orange-behind-brown" x="650"></text>
+                                    <text id="orange-behind-gray" x="750"></text>
+                                    <text id="orange-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-yellow">
+                                    <text id="yellow-behind-red" x="50"></text>
+                                    <text id="yellow-behind-orange" x="150"></text>
+                                    <text id="yellow-behind-yellow" x="250"></text>
+                                    <text id="yellow-behind-green" x="350"></text>
+                                    <text id="yellow-behind-blue" x="450"></text>
+                                    <text id="yellow-behind-purple" x="550"></text>
+                                    <text id="yellow-behind-brown" x="650"></text>
+                                    <text id="yellow-behind-gray" x="750"></text>
+                                    <text id="yellow-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-green">
+                                    <text id="green-behind-red" x="50"></text>
+                                    <text id="green-behind-orange" x="150"></text>
+                                    <text id="green-behind-yellow" x="250"></text>
+                                    <text id="green-behind-green" x="350"></text>
+                                    <text id="green-behind-blue" x="450"></text>
+                                    <text id="green-behind-purple" x="550"></text>
+                                    <text id="green-behind-brown" x="650"></text>
+                                    <text id="green-behind-gray" x="750"></text>
+                                    <text id="green-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-blue">
+                                    <text id="blue-behind-red" x="50"></text>
+                                    <text id="blue-behind-orange" x="150"></text>
+                                    <text id="blue-behind-yellow" x="250"></text>
+                                    <text id="blue-behind-green" x="350"></text>
+                                    <text id="blue-behind-blue" x="450"></text>
+                                    <text id="blue-behind-purple" x="550"></text>
+                                    <text id="blue-behind-brown" x="650"></text>
+                                    <text id="blue-behind-gray" x="750"></text>
+                                    <text id="blue-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-purple">
+                                    <text id="purple-behind-red" x="50"></text>
+                                    <text id="purple-behind-orange" x="150"></text>
+                                    <text id="purple-behind-yellow" x="250"></text>
+                                    <text id="purple-behind-green" x="350"></text>
+                                    <text id="purple-behind-blue" x="450"></text>
+                                    <text id="purple-behind-purple" x="550"></text>
+                                    <text id="purple-behind-brown" x="650"></text>
+                                    <text id="purple-behind-gray" x="750"></text>
+                                    <text id="purple-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-brown">
+                                    <text id="brown-behind-red" x="50"></text>
+                                    <text id="brown-behind-orange" x="150"></text>
+                                    <text id="brown-behind-yellow" x="250"></text>
+                                    <text id="brown-behind-green" x="350"></text>
+                                    <text id="brown-behind-blue" x="450"></text>
+                                    <text id="brown-behind-purple" x="550"></text>
+                                    <text id="brown-behind-brown" x="650"></text>
+                                    <text id="brown-behind-gray" x="750"></text>
+                                    <text id="brown-behind-pink" x="850"></text>
+                                </g>
+                                <g class="current-pink">
+                                    <text id="pink-behind-red" x="50"></text>
+                                    <text id="pink-behind-orange" x="150"></text>
+                                    <text id="pink-behind-yellow" x="250"></text>
+                                    <text id="pink-behind-green" x="350"></text>
+                                    <text id="pink-behind-blue" x="450"></text>
+                                    <text id="pink-behind-purple" x="550"></text>
+                                    <text id="pink-behind-brown" x="650"></text>
+                                    <text id="pink-behind-gray" x="750"></text>
+                                    <text id="pink-behind-pink" x="850"></text>
+                                </g>
+                            </g>
+                        </g>
+                    
+                        <g transform="translate(0,190)">
+                            <g id="current-behind" style="fill: red" transform="translate(-15, -15)">
+                                <circle class="red" cx="50" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="orange" cx="150" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="yellow" cx="250" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="green" cx="350" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="blue" cx="450" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="purple" cx="550" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="brown" cx="650" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="gray" cx="750" cy="50" r="27" stroke="black" stroke-width="2" />
+                                <circle class="pink" cx="850" cy="50" r="27" stroke="black" stroke-width="2" />
+                            </g>
+                    
+                            <g id="infront">
+                                <circle class="red" cx="60" cy="50" r="30" stroke="black" stroke-width="2" fill="red" />
+                                <circle class="orange" cx="160" cy="50" r="30" stroke="black" stroke-width="2" fill="orange" />
+                                <circle class="yellow" cx="260" cy="50" r="30" stroke="black" stroke-width="2" fill="yellow" />
+                                <circle class="green" cx="360" cy="50" r="30" stroke="black" stroke-width="2" fill="green" />
+                                <circle class="blue" cx="460" cy="50" r="30" stroke="black" stroke-width="2" fill="blue" />
+                                <circle class="purple" cx="560" cy="50" r="30" stroke="black" stroke-width="2" fill="purple" />
+                                <circle class="brown" cx="660" cy="50" r="30" stroke="black" stroke-width="2" fill="brown" />
+                                <circle class="gray" cx="760" cy="50" r="30" stroke="black" stroke-width="2" fill="gray" />
+                                <circle class="pink" cx="860" cy="50" r="30" stroke="black" stroke-width="2" fill="pink" />
+                            </g>
+                        </g>
+                    </g>
+                </g> <!-- #data -->
+            </svg>
+            
+        </div>
+        <div id="hypotheses-tab" class="tab">
+            <div id="hypotheses" style="height: 100%">
+            </div>
+        </div>
+    </div>
+    
         
 </body>
 </html>
