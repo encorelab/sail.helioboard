@@ -69,6 +69,10 @@
   list-style-image: url(../images/comment.png);
 }
 
+.baloon .discussion li:last-child {
+  margin-bottom: 0.5ex;
+}
+
 .baloon .predicate {
   font-size: 1em;
   font-weight: bold;
