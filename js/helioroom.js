@@ -5,15 +5,12 @@ HelioRoom = {
     groupchatRoom: 's3@conference.proto.encorelab.org',
     
     login: 'monitor',
-    password: '9796809f7dae482d3123c16585f2b60f97407796',
-    
+    password: '9796809f7dae482d3123c16585f2b60f97407796', // "monitor"
     
     // private global vars
     
     ui: Sail.UI,
     groupchat: null,
-    session: null,
-    justWatching: false,
     
     colors: ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'gray', 'pink'],
     planets: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"],
@@ -53,11 +50,15 @@ HelioRoom = {
       	    sailHandler = Sail.generateSailEventHandler(HelioRoom)
       	    Sail.Strophe.addHandler(sailHandler, null, null, 'chat')
   	    
-      	    HelioRoom.groupchat = Sail.Strophe.joinGroupchat(HelioRoom.groupchatRoom)
+      	    HelioRoom.groupchat = new Sail.Strophe.Groupchat(HelioRoom.groupchatRoom, "monitor-"+(new Date()).getTime().toString(36))
       	    HelioRoom.groupchat.addHandler(sailHandler)
+      	    
+      	    HelioRoom.groupchat.onSelfJoin = function(pres) {
+      	        $('#connecting').hide()
+          	    $(HelioRoom).trigger('joined')
+      	    }
   	    
-      	    $('#connecting').hide()
-      	    $(HelioRoom).trigger('joined')
+  	        HelioRoom.groupchat.join()
       	}
   	    
   	    Sail.Strophe.connect()
