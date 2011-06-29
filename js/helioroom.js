@@ -1,8 +1,8 @@
 HelioRoom = {
     // config
     
-    xmppDomain: 'roadshow.local',
-    groupchatRoom: 's3@conference.roadshow.local',
+    xmppDomain: 'roadshow.encorelab.org',
+    groupchatRoom: 's3@conference.encorelab.org',
     
     login: 'monitor',
     password: '9796809f7dae482d3123c16585f2b60f97407796', // "monitor"
