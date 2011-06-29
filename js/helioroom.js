@@ -1,8 +1,8 @@
 HelioRoom = {
     // config
     
-    xmppDomain: 'proto.encorelab.org',
-    groupchatRoom: 's3@conference.proto.encorelab.org',
+    xmppDomain: 'roadshow',
+    groupchatRoom: 's3@conference.roadshow',
     
     login: 'monitor',
     password: '9796809f7dae482d3123c16585f2b60f97407796', // "monitor"
